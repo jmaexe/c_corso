@@ -1,8 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define SIZE 5
+int fat(int n)
+{
+    if (n == 0)
+        return 1;
+    return n * fat(n - 1);
+}
 int main()
 {
+    int n = fat(4);
+    printf("%d", n);
+    int v[SIZE] = {1, 2, 3, 4, 5};
+    int temp = 0;
+    for (int i = 0; i < SIZE / 2; i++)
+    {
+        temp = v[i];
+        v[i] = v[SIZE - i - 1];
+        v[SIZE - 1 - i] = temp;
+    }
+    for (int i = 0; i < SIZE; i++)
+    {
+        printf("%d, ", v[i]);
+    }
+
     // int v[10];
     // for (int i = 0; i < 10; i++)
     // {
